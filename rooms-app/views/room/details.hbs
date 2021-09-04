@@ -1,0 +1,21 @@
+<h2>Room {{roomFromDB.name}}</h2>
+
+<img src="{{roomFromDB.imageUrl}}" alt="{{roomFromDB.name}} image" height="200">
+<p>{{roomFromDB.owner.username}} - {{roomFromDB.description}}</p>
+{{#if isOwner}}
+    <a href="/room/{{_id}}/edit">Edit the room</a>
+{{/if}}
+
+{{#each roomFromDB.reviews}}
+    <p>{{user.username}}</p>
+    <p>{{comment}}</p>
+{{/each}}
+
+{{#if isAuth}}
+    {{#unless isOwner}}
+        <form action="/review/{{roomFromDB._id}}/create" method="post">
+            <input type="text" name="comment" placeholder="comment">
+            <button type="submit">Submit review</button>
+        </form>
+    {{/unless}}
+{{/if}}

@@ -1,0 +1,10 @@
+<h2>All the rooms</h2>
+
+{{#each this}}
+    <h3><a href="/room/{{_id}}/details">{{name}}</a></h3>
+    <img src="{{imageUrl}}" alt="{{name}} image" height="200">
+    <p>{{owner}} - {{description}}</p>
+    {{#if isOwner}}
+        <a href="/room/{{_id}}/edit">Edit the room</a>
+    {{/if}}
+{{/each}}

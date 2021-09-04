@@ -1,0 +1,12 @@
+<h2>Edit room {{name}}</h2>
+
+<img src={{imageUrl}} height=300>
+<form action="/room/{{_id}}/edit" method="post">
+  <input type="text" name="name" placeholder="name" value={{name}}>
+  <input type="text" name="description" placeholder="description" value="{{description}}">
+  <input type="text" name="imageUrl" placeholder="imageUrl" value={{imageUrl}}>
+  <button type="submit">Edit a room</button>
+</form>
+<form action="/room/{{_id}}/delete" method="post">
+    <button type="submit">Delete the room</button>
+</form>
